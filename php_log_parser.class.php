@@ -78,8 +78,8 @@ class php_log_parser {
 				continue;
 			}
 			$detail = str_replace('PHP ','',str_replace($error_description['2'],'', $back['1']));
-			$in = array('type' =>  $type, 'info' => $error_description['5'], 'detail' => $detail );
-			$this->data[] = $in;
+			$output = array('type' =>  $type, 'info' => $error_description['5'], 'detail' => $detail );
+			$this->data[] = $output;
 		}
 	}
 
@@ -183,4 +183,3 @@ class php_log_parser {
 		return $out;
 	}
 }
-?>

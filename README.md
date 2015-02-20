@@ -1,6 +1,8 @@
 php_error_log_parser
 =================
 
+[![Code Climate](https://codeclimate.com/github/JBlond/apache_log_parser/badges/gpa.svg)](https://codeclimate.com/github/JBlond/apache_log_parser)
+
 PHP Error log parser: Filter your log for errors
 
 example
