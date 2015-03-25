@@ -136,8 +136,11 @@ class php_log_parser {
 		$out .= '<br /><br />Listed the 50 most counted errors ( overall '.$this->stats['errCount'].' different errors ).<br /><br />';
 		$out .= '<table>';
 		$out .= '<tr><td><b>Rank</b></td><td><b>count</b></td><td><b>type</b></td><td><b>Error</b></td></tr>';
-		$keys = array_keys($this->stats['err']);
-		for($y = 0; $y < 50; $y++){
+		$keycount = count($keys);
+		if ($keycount > 50){
+			$keycount = 50; /* limit to 50 errors shown */
+		}
+		for($y = 0; $y < $keycount; $y++){
 			if(trim($this->stats['err'][$keys[$y]]) == ''){
 				continue;
 			}
