@@ -34,7 +34,7 @@ class php_log_parser {
 	*/
 	public function __construct($file,$notice=true){
 		$this->file = $file;
-		if($notice == false){
+		if($notice === false){
 			$this->notice = false;
 		}
 		$this->inhalt = file_get_contents($this->file);
