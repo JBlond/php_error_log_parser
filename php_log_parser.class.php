@@ -74,7 +74,7 @@ class php_log_parser {
 			}
 			$error_description = explode(' ' , $back['1']);
 			$type = str_replace(':','',$error_description['2']);
-			if($this->notice == false && strpos($type, 'Notice')){
+			if($this->notice === false && strpos($type, 'Notice')){
 				continue;
 			}
 			$detail = str_replace('PHP ','',str_replace($error_description['2'],'', $back['1']));
