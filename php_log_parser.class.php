@@ -37,11 +37,15 @@ class php_log_parser {
 		if($notice === false){
 			$this->notice = false;
 		}
+
 		$this->inhalt = file_get_contents($this->file);
 		if(!$this->inhalt){
-			die("Can not open file: '".$this->file."' <br>Check the file name!");
+			echo ("Can not open file: '".$this->file."' <br>Check the file name!");
+			return false;
 		}
+
 		$this->paralyse_log();
+
 	}
 
 	/**
@@ -125,6 +129,9 @@ class php_log_parser {
 	* @return String $out
 	*/
 	public function table(){
+		if(!isset($this->stats['rows'])){
+			return;
+		}
 		$out = '<br /><br />Parsed '. $this->stats['rows'] .' lines. Found <b>'.$this->stats['analyzed_rows'].'</b> errors with <b>'.$this->stats['rowtypeCount'].'</b> type(s)<br /><br />';
 		$out .= '<table>';
 		$out .= '<tr><td><b>Name</b></td><td><b>Value</b></td><td><b>Percent</b></td></tr>';
